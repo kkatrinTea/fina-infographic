@@ -1,0 +1,130 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.page { background: #F5F0E8; padding: 40px 36px; border-radius: var(--border-radius-lg); font-family: var(--font-sans); }
+.hero { text-align: center; padding-bottom: 36px; border-bottom: 1px solid #D9CFC0; margin-bottom: 36px; }
+.logo { font-size: 48px; font-weight: 500; color: #5C3D1E; }
+.hero-sub { font-size: 16px; color: #8C7B68; margin-top: 6px; }
+.hero-tag { font-size: 13px; color: #A0714F; margin-top: 8px; letter-spacing: 2px; }
+.section { margin-bottom: 36px; }
+.section-title { font-size: 11px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+.section-heading { font-size: 20px; font-weight: 500; color: #3A2510; margin-bottom: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 16px; }
+.card-icon { font-size: 16px; margin-bottom: 8px; }
+.card-text { font-size: 13px; color: #5C4A36; line-height: 1.5; }
+.stat-card { background: #5C3D1E; border-radius: var(--border-radius-lg); padding: 20px 14px; text-align: center; }
+.stat-num { font-size: 34px; font-weight: 500; color: #F0D9BE; line-height: 1; margin-bottom: 8px; }
+.stat-label { font-size: 11px; color: #C4A882; line-height: 1.4; }
+.aud-card { background: #E8DDD0; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 18px; }
+.aud-tag { font-size: 10px; color: #A0714F; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.aud-title { font-size: 14px; font-weight: 500; color: #3A2510; margin-bottom: 8px; }
+.aud-text { font-size: 12px; color: #6B5340; line-height: 1.5; }
+.comp-card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 16px; }
+.comp-problem { font-size: 13px; font-weight: 500; color: #3A2510; margin-bottom: 6px; }
+.comp-gap { font-size: 12px; color: #7A5C42; line-height: 1.4; border-left: 2px solid #A0714F; padding-left: 10px; margin-top: 8px; }
+.timeline-card { background: #E2D5C3; border: 0.5px solid #C8B89E; border-radius: var(--border-radius-lg); padding: 16px; }
+.tl-year { font-size: 20px; font-weight: 500; color: #7A4F28; margin-bottom: 8px; }
+.tl-text { font-size: 12px; color: #6B5340; line-height: 1.5; }
+.divider { border: none; border-top: 1px solid #D9CFC0; margin-bottom: 36px; }
+.footer { text-align: center; padding-top: 28px; border-top: 1px solid #D9CFC0; margin-top: 8px; }
+.footer-logo { font-size: 20px; font-weight: 500; color: #5C3D1E; margin-bottom: 4px; }
+.footer-tag { font-size: 13px; color: #A0714F; letter-spacing: 1px; }
+</style>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="logo">Fina</div>
+    <div class="hero-sub">Финансовый планировщик нового поколения</div>
+    <div class="hero-tag">Планируй · Копи · Достигай</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">01 · Проблема</div>
+    <div class="section-heading">Какую проблему мы решаем?</div>
+    <div class="grid-2">
+      <div class="card"><div class="card-icon">💸</div><div class="card-text">Деньги кончаются, но непонятно почему</div></div>
+      <div class="card"><div class="card-icon">📅</div><div class="card-text">Нет планирования вперёд — только учёт прошлого</div></div>
+      <div class="card"><div class="card-icon">🔐</div><div class="card-text">Страшно давать доступ к счёту сторонним приложениям</div></div>
+      <div class="card"><div class="card-icon">📊</div><div class="card-text">Таблицы слишком сложны — бросают через неделю</div></div>
+      <div class="card"><div class="card-icon">💻</div><div class="card-text">Конкуренты — только мобильное приложение, нет веб-версии</div></div>
+      <div class="card"><div class="card-icon">👫</div><div class="card-text">Партнёр ведёт бюджет отдельно — нет общей картины</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">02 · Аудитория</div>
+    <div class="section-heading">Для кого и в какой сфере?</div>
+    <div class="grid-3">
+      <div class="aud-card">
+        <div class="aud-tag">Сегмент А · 18–30</div>
+        <div class="aud-title">Студенты и начинающие</div>
+        <div class="aud-text">Первые доходы, непредсказуемые траты. Хотят накопить на первую крупную покупку.</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-tag">Сегмент Б · 25–50</div>
+        <div class="aud-title">Стабильный доход</div>
+        <div class="aud-text">Непонятно куда уходит разница между зарплатой и остатком. Хотят понять структуру трат.</div>
+      </div>
+      <div class="aud-card">
+        <div class="aud-tag">Сегмент В · Любой возраст</div>
+        <div class="aud-title">Мечтатели с целью</div>
+        <div class="aud-text">Есть конкретная дорогая цель — поездка, ремонт, первый взнос. Нужен инструмент накопления.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">03 · Цифры</div>
+    <div class="section-heading">Проблема в цифрах</div>
+    <div class="grid-4">
+      <div class="stat-card"><div class="stat-num">62%</div><div class="stat-label">россиян хотят лучше контролировать расходы</div></div>
+      <div class="stat-card"><div class="stat-num">47%</div><div class="stat-label">не знают, сколько тратят по категориям</div></div>
+      <div class="stat-card"><div class="stat-num">15%</div><div class="stat-label">ключевая ставка ЦБ — выгоднее копить, чем брать кредит</div></div>
+      <div class="stat-card"><div class="stat-num">3–6</div><div class="stat-label">недель — срок до «отвала» от конкурентов</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">04 · Конкуренты</div>
+    <div class="section-heading">Почему существующих решений недостаточно?</div>
+    <div class="grid-2">
+      <div class="comp-card">
+        <div class="comp-problem">Банковские планировщики</div>
+        <div class="comp-gap">Привязаны к одному банку — нет общей картины по всем счетам</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">CoinKeeper, Деньги ОК</div>
+        <div class="comp-gap">Только мобильное приложение — нет веб-версии и AI-анализа</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">Excel и таблицы</div>
+        <div class="comp-gap">Слишком сложно — пользователи бросают уже через неделю</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">Ни один конкурент не предлагает</div>
+        <div class="comp-gap">Веб + AI-анализ + семейный бюджет одновременно</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">05 · Перспектива</div>
+    <div class="section-heading">Как проблема будет меняться?</div>
+    <div class="grid-4">
+      <div class="timeline-card"><div class="tl-year">1 год</div><div class="tl-text">Ставка ЦБ делает накопления выгоднее — спрос на планировщики растёт</div></div>
+      <div class="timeline-card"><div class="tl-year">3 года</div><div class="tl-text">Рынок консолидируется вокруг мультибанковых решений с AI</div></div>
+      <div class="timeline-card"><div class="tl-year">5 лет</div><div class="tl-text">AI-персонализация становится стандартом — игроки без неё теряют аудиторию</div></div>
+      <div class="timeline-card"><div class="tl-year">10 лет</div><div class="tl-text">Финансовая грамотность — базовый навык. Рынок сопоставим с фитнес-приложениями</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">Fina</div>
+    <div class="footer-tag">Планируй · Копи · Достигай</div>
+  </div>
+
+</div>
