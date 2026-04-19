@@ -1,47 +1,62 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fina — Инфографика</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-.page { background: #F5F0E8; padding: 40px 36px; border-radius: var(--border-radius-lg); font-family: var(--font-sans); }
-.hero { text-align: center; padding-bottom: 36px; border-bottom: 1px solid #D9CFC0; margin-bottom: 36px; }
-.logo { font-size: 48px; font-weight: 500; color: #5C3D1E; }
-.hero-sub { font-size: 16px; color: #8C7B68; margin-top: 6px; }
-.hero-tag { font-size: 13px; color: #A0714F; margin-top: 8px; letter-spacing: 2px; }
-.section { margin-bottom: 36px; }
-.section-title { font-size: 11px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-.section-heading { font-size: 20px; font-weight: 500; color: #3A2510; margin-bottom: 16px; }
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 16px; }
-.card-icon { font-size: 16px; margin-bottom: 8px; }
-.card-text { font-size: 13px; color: #5C4A36; line-height: 1.5; }
-.stat-card { background: #5C3D1E; border-radius: var(--border-radius-lg); padding: 20px 14px; text-align: center; }
-.stat-num { font-size: 34px; font-weight: 500; color: #F0D9BE; line-height: 1; margin-bottom: 8px; }
-.stat-label { font-size: 11px; color: #C4A882; line-height: 1.4; }
-.aud-card { background: #E8DDD0; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 18px; }
-.aud-tag { font-size: 10px; color: #A0714F; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
-.aud-title { font-size: 14px; font-weight: 500; color: #3A2510; margin-bottom: 8px; }
-.aud-text { font-size: 12px; color: #6B5340; line-height: 1.5; }
-.comp-card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: var(--border-radius-lg); padding: 16px; }
-.comp-problem { font-size: 13px; font-weight: 500; color: #3A2510; margin-bottom: 6px; }
-.comp-gap { font-size: 12px; color: #7A5C42; line-height: 1.4; border-left: 2px solid #A0714F; padding-left: 10px; margin-top: 8px; }
-.timeline-card { background: #E2D5C3; border: 0.5px solid #C8B89E; border-radius: var(--border-radius-lg); padding: 16px; }
-.tl-year { font-size: 20px; font-weight: 500; color: #7A4F28; margin-bottom: 8px; }
-.tl-text { font-size: 12px; color: #6B5340; line-height: 1.5; }
-.divider { border: none; border-top: 1px solid #D9CFC0; margin-bottom: 36px; }
-.footer { text-align: center; padding-top: 28px; border-top: 1px solid #D9CFC0; margin-top: 8px; }
-.footer-logo { font-size: 20px; font-weight: 500; color: #5C3D1E; margin-bottom: 4px; }
-.footer-tag { font-size: 13px; color: #A0714F; letter-spacing: 1px; }
+body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', sans-serif; display: flex; justify-content: center; padding: 40px 16px; min-height: 100vh; }
+.page { background: #F5F0E8; border-radius: 16px; width: 100%; max-width: 560px; padding: 40px 36px; box-shadow: 0 2px 24px rgba(80,40,10,0.08); }
+ 
+.hero { text-align: center; padding-bottom: 28px; border-bottom: 1px solid #D9CFC0; margin-bottom: 28px; }
+.logo { font-size: 40px; font-weight: 600; color: #5C3D1E; letter-spacing: -0.5px; }
+.hero-sub { font-size: 14px; color: #8C7B68; margin-top: 4px; }
+.hero-tag { font-size: 12px; color: #A0714F; margin-top: 6px; letter-spacing: 1.5px; }
+ 
+.section { margin-bottom: 28px; }
+.section-title { font-size: 10px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.section-heading { font-size: 18px; font-weight: 500; color: #3A2510; margin-bottom: 14px; }
+ 
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+ 
+.card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 14px; }
+.card-icon { font-size: 14px; margin-bottom: 6px; }
+.card-text { font-size: 12px; color: #5C4A36; line-height: 1.5; }
+ 
+.stat-card { background: #5C3D1E; border-radius: 10px; padding: 16px 10px; text-align: center; }
+.stat-num { font-size: 28px; font-weight: 600; color: #F0D9BE; line-height: 1; margin-bottom: 6px; }
+.stat-label { font-size: 10px; color: #C4A882; line-height: 1.4; }
+ 
+.aud-card { background: #E8DDD0; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 14px; }
+.aud-tag { font-size: 9px; color: #A0714F; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.aud-title { font-size: 13px; font-weight: 500; color: #3A2510; margin-bottom: 6px; }
+.aud-text { font-size: 11px; color: #6B5340; line-height: 1.5; }
+ 
+.comp-card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 14px; }
+.comp-problem { font-size: 12px; font-weight: 500; color: #3A2510; margin-bottom: 6px; }
+.comp-gap { font-size: 11px; color: #7A5C42; line-height: 1.4; border-left: 2px solid #A0714F; padding-left: 8px; margin-top: 6px; }
+ 
+.timeline-card { background: #E2D5C3; border: 0.5px solid #C8B89E; border-radius: 10px; padding: 14px; }
+.tl-year { font-size: 17px; font-weight: 500; color: #7A4F28; margin-bottom: 6px; }
+.tl-text { font-size: 11px; color: #6B5340; line-height: 1.5; }
+ 
+.footer { text-align: center; padding-top: 24px; border-top: 1px solid #D9CFC0; margin-top: 4px; }
+.footer-logo { font-size: 17px; font-weight: 600; color: #5C3D1E; margin-bottom: 3px; }
+.footer-tag { font-size: 11px; color: #A0714F; letter-spacing: 1px; }
 </style>
-
+</head>
+<body>
 <div class="page">
-
+ 
   <div class="hero">
     <div class="logo">Fina</div>
     <div class="hero-sub">Финансовый планировщик нового поколения</div>
     <div class="hero-tag">Планируй · Копи · Достигай</div>
   </div>
-
+ 
   <div class="section">
     <div class="section-title">01 · Проблема</div>
     <div class="section-heading">Какую проблему мы решаем?</div>
@@ -54,7 +69,7 @@
       <div class="card"><div class="card-icon">👫</div><div class="card-text">Партнёр ведёт бюджет отдельно — нет общей картины</div></div>
     </div>
   </div>
-
+ 
   <div class="section">
     <div class="section-title">02 · Аудитория</div>
     <div class="section-heading">Для кого и в какой сфере?</div>
@@ -76,7 +91,7 @@
       </div>
     </div>
   </div>
-
+ 
   <div class="section">
     <div class="section-title">03 · Цифры</div>
     <div class="section-heading">Проблема в цифрах</div>
@@ -87,7 +102,7 @@
       <div class="stat-card"><div class="stat-num">3–6</div><div class="stat-label">недель — срок до «отвала» от конкурентов</div></div>
     </div>
   </div>
-
+ 
   <div class="section">
     <div class="section-title">04 · Конкуренты</div>
     <div class="section-heading">Почему существующих решений недостаточно?</div>
@@ -110,7 +125,7 @@
       </div>
     </div>
   </div>
-
+ 
   <div class="section">
     <div class="section-title">05 · Перспектива</div>
     <div class="section-heading">Как проблема будет меняться?</div>
@@ -121,10 +136,12 @@
       <div class="timeline-card"><div class="tl-year">10 лет</div><div class="tl-text">Финансовая грамотность — базовый навык. Рынок сопоставим с фитнес-приложениями</div></div>
     </div>
   </div>
-
+ 
   <div class="footer">
     <div class="footer-logo">Fina</div>
     <div class="footer-tag">Планируй · Копи · Достигай</div>
   </div>
-
+ 
 </div>
+</body>
+</html>
