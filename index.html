@@ -7,22 +7,29 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif; min-height: 100vh; padding: 24px 16px 40px; }
-.tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; }
-.tab-btn { background: #D9CFC0; border: none; border-radius: 10px; padding: 10px 28px; font-size: 14px; font-weight: 500; color: #5C3D1E; cursor: pointer; }
+.tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.tab-btn { background: #D9CFC0; border: none; border-radius: 10px; padding: 10px 22px; font-size: 13px; font-weight: 500; color: #5C3D1E; cursor: pointer; }
 .tab-btn.active { background: #5C3D1E; color: #F0D9BE; }
 .tab-content { display: none; justify-content: center; }
 .tab-content.active { display: flex; }
-.page, .avatar-page { background: #F5F0E8; border-radius: 16px; width: 50vw; min-width: 480px; max-width: 780px; padding: 40px 36px; box-shadow: 0 2px 24px rgba(80,40,10,0.08); }
+.page, .avatar-page, .market-page, .compete-page {
+  background: #F5F0E8; border-radius: 16px; width: 50vw; min-width: 480px; max-width: 780px;
+  padding: 40px 36px; box-shadow: 0 2px 24px rgba(80,40,10,0.08);
+}
+
+/* ── SHARED ── */
+.section-label { font-size: 10px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.section-heading { font-size: 18px; font-weight: 500; color: #3A2510; margin-bottom: 14px; }
+.section { margin-bottom: 28px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+
+/* ── INFOGRAPHIC ── */
 .hero { text-align: center; padding-bottom: 28px; border-bottom: 1px solid #D9CFC0; margin-bottom: 28px; }
 .logo { font-size: 40px; font-weight: 600; color: #5C3D1E; }
 .hero-sub { font-size: 14px; color: #8C7B68; margin-top: 4px; }
 .hero-tag { font-size: 12px; color: #A0714F; margin-top: 6px; letter-spacing: 1.5px; }
-.section { margin-bottom: 28px; }
-.section-title { font-size: 10px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-.section-heading { font-size: 18px; font-weight: 500; color: #3A2510; margin-bottom: 14px; }
-.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
 .card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 14px; }
 .card-icon { font-size: 14px; margin-bottom: 6px; }
 .card-text { font-size: 12px; color: #5C4A36; line-height: 1.5; }
@@ -42,14 +49,14 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
 .footer { text-align: center; padding-top: 24px; border-top: 1px solid #D9CFC0; margin-top: 4px; }
 .footer-logo { font-size: 17px; font-weight: 600; color: #5C3D1E; margin-bottom: 3px; }
 .footer-tag { font-size: 11px; color: #A0714F; letter-spacing: 1px; }
+
+/* ── AVATAR ── */
 .av-header { display: flex; gap: 28px; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid #D9CFC0; margin-bottom: 28px; }
 .av-name { font-size: 26px; font-weight: 600; color: #3A2510; margin-bottom: 4px; }
 .av-role { font-size: 14px; color: #A0714F; margin-bottom: 12px; }
 .av-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
 .av-tag { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 20px; padding: 3px 12px; font-size: 11px; color: #5C4A36; }
 .av-quote { background: #5C3D1E; border-radius: 10px; padding: 12px 16px; font-size: 13px; color: #F0D9BE; line-height: 1.5; font-style: italic; }
-.av-section { margin-bottom: 22px; }
-.av-section-title { font-size: 10px; font-weight: 500; color: #A0714F; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
 .av-goal-card { background: #E8DDD0; border-left: 3px solid #A0714F; border-radius: 0 10px 10px 0; padding: 10px 14px; margin-bottom: 6px; font-size: 12px; color: #5C4A36; line-height: 1.5; }
 .av-pain-card { background: #F0E8E0; border-left: 3px solid #C47A5A; border-radius: 0 10px 10px 0; padding: 10px 14px; margin-bottom: 6px; font-size: 12px; color: #5C4A36; line-height: 1.5; }
 .av-source-card { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
@@ -60,15 +67,57 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
 .av-obj-text { font-size: 12px; color: #5C4A36; line-height: 1.5; }
 .av-behaviour { background: #E2D5C3; border: 0.5px solid #C8B89E; border-radius: 10px; padding: 14px; }
 .av-behaviour p { font-size: 12px; color: #6B5340; line-height: 1.6; margin-bottom: 6px; }
+
+/* ── MARKET (TAM/SAM/SOM) ── */
+.market-hero { text-align: center; padding-bottom: 24px; border-bottom: 1px solid #D9CFC0; margin-bottom: 28px; }
+.market-hero h1 { font-size: 22px; font-weight: 600; color: #3A2510; }
+.market-hero p { font-size: 12px; color: #8C7B68; margin-top: 6px; }
+.funnel { display: flex; flex-direction: column; gap: 0; margin-bottom: 28px; }
+.funnel-item { border-radius: 10px; padding: 18px 20px; margin-bottom: 3px; position: relative; }
+.funnel-pam { background: #5C3D1E; }
+.funnel-tam { background: #7A5230; }
+.funnel-sam { background: #9A6840; }
+.funnel-som { background: #B87E50; }
+.funnel-label { font-size: 10px; color: rgba(255,255,255,0.7); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.funnel-num { font-size: 26px; font-weight: 600; color: #F0D9BE; margin-bottom: 4px; }
+.funnel-desc { font-size: 11px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+.funnel-pct { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; }
+.market-calc { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 16px; margin-bottom: 10px; }
+.market-calc-title { font-size: 11px; font-weight: 600; color: #5C3D1E; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.market-calc-row { display: flex; justify-content: space-between; font-size: 11px; color: #6B5340; padding: 4px 0; border-bottom: 0.5px solid #CEC2AF; }
+.market-calc-row:last-child { border-bottom: none; font-weight: 600; color: #3A2510; }
+.source-note { font-size: 10px; color: #9C8878; margin-top: 10px; line-height: 1.6; }
+
+/* ── COMPETITIVE ── */
+.compete-hero { text-align: center; padding-bottom: 24px; border-bottom: 1px solid #D9CFC0; margin-bottom: 28px; }
+.compete-hero h1 { font-size: 22px; font-weight: 600; color: #3A2510; }
+.compete-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+.compete-table th { background: #5C3D1E; color: #F0D9BE; font-size: 10px; font-weight: 500; padding: 8px 10px; text-align: left; letter-spacing: 0.5px; }
+.compete-table th:first-child { border-radius: 8px 0 0 0; }
+.compete-table th:last-child { border-radius: 0 8px 0 0; }
+.compete-table td { font-size: 11px; color: #5C4A36; padding: 9px 10px; border-bottom: 0.5px solid #D9CFC0; vertical-align: top; line-height: 1.4; }
+.compete-table tr:nth-child(even) td { background: #EDE5D8; }
+.compete-table tr:hover td { background: #E2D5C3; }
+.badge { display: inline-block; border-radius: 4px; padding: 2px 7px; font-size: 9px; font-weight: 600; margin-bottom: 2px; }
+.badge-direct { background: #C47A5A; color: white; }
+.badge-adjacent { background: #7A8C5C; color: white; }
+.badge-indirect { background: #5C7A8C; color: white; }
+.check { color: #44A06A; font-weight: 700; }
+.cross { color: #C44A4A; font-weight: 700; }
+.compete-summary { background: #EDE5D8; border: 0.5px solid #CEC2AF; border-radius: 10px; padding: 16px; }
+.compete-summary p { font-size: 12px; color: #5C4A36; line-height: 1.7; }
 </style>
 </head>
 <body>
 
 <div class="tabs">
-  <button class="tab-btn active" onclick="showTab('infographic',this)">Проблема</button>
-  <button class="tab-btn" onclick="showTab('avatar',this)">Аватар клиента</button>
+  <button class="tab-btn active" onclick="showTab('infographic',this)">1 · Проблема</button>
+  <button class="tab-btn" onclick="showTab('avatar',this)">2 · Аватар</button>
+  <button class="tab-btn" onclick="showTab('market',this)">3 · Анализ рынка</button>
+  <button class="tab-btn" onclick="showTab('compete',this)">4 · Конкуренты</button>
 </div>
 
+<!-- TAB 1: INFOGRAPHIC -->
 <div class="tab-content active" id="tab-infographic">
 <div class="page">
   <div class="hero">
@@ -77,7 +126,7 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
     <div class="hero-tag">Планируй · Копи · Достигай</div>
   </div>
   <div class="section">
-    <div class="section-title">01 · Проблема</div>
+    <div class="section-label">01 · Проблема</div>
     <div class="section-heading">Какую проблему мы решаем?</div>
     <div class="grid-2">
       <div class="card"><div class="card-icon">💸</div><div class="card-text">Деньги кончаются, но непонятно почему</div></div>
@@ -89,16 +138,16 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
     </div>
   </div>
   <div class="section">
-    <div class="section-title">02 · Аудитория</div>
+    <div class="section-label">02 · Аудитория</div>
     <div class="section-heading">Для кого и в какой сфере?</div>
     <div class="grid-3">
       <div class="aud-card"><div class="aud-tag">Сегмент А · 18–30</div><div class="aud-title">Студенты и начинающие</div><div class="aud-text">Первые доходы, непредсказуемые траты. Хотят накопить на первую крупную покупку.</div></div>
       <div class="aud-card"><div class="aud-tag">Сегмент Б · 25–50</div><div class="aud-title">Стабильный доход</div><div class="aud-text">Непонятно куда уходит разница между зарплатой и остатком. Хотят понять структуру трат.</div></div>
-      <div class="aud-card"><div class="aud-tag">Сегмент В · Любой возраст</div><div class="aud-title">Мечтатели с целью</div><div class="aud-text">Есть конкретная дорогая цель — поездка, ремонт, первый взнос. Нужен инструмент накопления.</div></div>
+      <div class="aud-card"><div class="aud-tag">Сегмент В · Любой возраст</div><div class="aud-title">Мечтатели с целью</div><div class="aud-text">Конкретная дорогая цель — поездка, ремонт, первый взнос. Нужен инструмент накопления.</div></div>
     </div>
   </div>
   <div class="section">
-    <div class="section-title">03 · Цифры</div>
+    <div class="section-label">03 · Цифры</div>
     <div class="section-heading">Проблема в цифрах</div>
     <div class="grid-4">
       <div class="stat-card"><div class="stat-num">62%</div><div class="stat-label">россиян хотят лучше контролировать расходы</div></div>
@@ -108,7 +157,7 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
     </div>
   </div>
   <div class="section">
-    <div class="section-title">04 · Конкуренты</div>
+    <div class="section-label">04 · Конкуренты</div>
     <div class="section-heading">Почему существующих решений недостаточно?</div>
     <div class="grid-2">
       <div class="comp-card"><div class="comp-problem">Банковские планировщики</div><div class="comp-gap">Привязаны к одному банку — нет общей картины по всем счетам</div></div>
@@ -118,7 +167,7 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
     </div>
   </div>
   <div class="section">
-    <div class="section-title">05 · Перспектива</div>
+    <div class="section-label">05 · Перспектива</div>
     <div class="section-heading">Как проблема будет меняться?</div>
     <div class="grid-4">
       <div class="timeline-card"><div class="tl-year">1 год</div><div class="tl-text">Ставка ЦБ делает накопления выгоднее — спрос на планировщики растёт</div></div>
@@ -127,13 +176,11 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
       <div class="timeline-card"><div class="tl-year">10 лет</div><div class="tl-text">Финансовая грамотность — базовый навык. Рынок сопоставим с фитнес-приложениями</div></div>
     </div>
   </div>
-  <div class="footer">
-    <div class="footer-logo">Fina</div>
-    <div class="footer-tag">Планируй · Копи · Достигай</div>
-  </div>
+  <div class="footer"><div class="footer-logo">Fina</div><div class="footer-tag">Планируй · Копи · Достигай</div></div>
 </div>
 </div>
 
+<!-- TAB 2: AVATAR -->
 <div class="tab-content" id="tab-avatar">
 <div class="avatar-page">
   <div class="av-header">
@@ -142,50 +189,215 @@ body { background: #EDE8DF; font-family: -apple-system, BlinkMacSystemFont, 'Int
       <div class="av-name">Алексей Морозов</div>
       <div class="av-role">Менеджер по продукту · 28 лет · Москва</div>
       <div class="av-tags">
-        <span class="av-tag">Мужской</span>
-        <span class="av-tag">Не женат</span>
-        <span class="av-tag">180 000 ₽/мес</span>
-        <span class="av-tag">Высшее</span>
+        <span class="av-tag">Мужской</span><span class="av-tag">Не женат</span>
+        <span class="av-tag">95 000 ₽/мес</span><span class="av-tag">Высшее</span>
         <span class="av-tag">Съёмная квартира</span>
       </div>
       <div class="av-quote">Зарплата нормальная, а к концу месяца непонятно куда всё ушло. Хочу наконец разобраться.</div>
     </div>
   </div>
-  <div class="av-section">
-    <div class="av-section-title">3 цели и желания</div>
-    <div class="av-goal-card">🏠 Накопить на первоначальный взнос по ипотеке за 1-2 года — минимум 1 500 000 ₽</div>
+  <div class="section">
+    <div class="section-label">3 цели и желания</div>
+    <div class="av-goal-card">🏠 Накопить на первоначальный взнос по ипотеке за 2–3 года — минимум 800 000 ₽</div>
     <div class="av-goal-card">✈️ Ездить в отпуск 2 раза в год без чувства вины за потраченные деньги</div>
     <div class="av-goal-card">📈 Понять структуру своих трат и перестать «сливать» деньги на ерунду</div>
   </div>
-  <div class="av-section">
-    <div class="av-section-title">3 боли и трудности</div>
-    <div class="av-pain-card">😤 Пробовал Excel — заполнял неделю, потом надоело. Слишком муторно вносить каждую покупку вручную</div>
+  <div class="section">
+    <div class="section-label">3 боли и трудности</div>
+    <div class="av-pain-card">😤 Пробовал Excel — заполнял неделю, потом забил. Слишком муторно вносить каждую покупку вручную</div>
     <div class="av-pain-card">😰 Боится давать приложению доступ к банковскому счёту — слышал про утечки данных</div>
     <div class="av-pain-card">😞 Банковское приложение показывает только что уже потрачено, а не сколько ещё можно — это бесполезно</div>
   </div>
-  <div class="av-section">
-    <div class="av-section-title">2 возражения</div>
-    <div class="av-objection">
-      <div class="av-obj-label">Возражение 1</div>
-      <div class="av-obj-text">«Я снова буду вести это пару недель и брошу — зачем тогда платить за подписку?» → Барьер: страх не довести до результата, негативный опыт с таблицами</div>
-    </div>
-    <div class="av-objection">
-      <div class="av-obj-label">Возражение 2</div>
-      <div class="av-obj-text">«199 рублей — мелочь, но непонятно за что именно плачу, если всё это можно в Excel» → Барьер: не понимает уникальной ценности по сравнению с бесплатными инструментами</div>
-    </div>
+  <div class="section">
+    <div class="section-label">2 возражения</div>
+    <div class="av-objection"><div class="av-obj-label">Возражение 1</div><div class="av-obj-text">«Я снова буду вести это пару недель и брошу — зачем тогда платить за подписку?» → Барьер: страх не довести до результата, негативный опыт с таблицами</div></div>
+    <div class="av-objection"><div class="av-obj-label">Возражение 2</div><div class="av-obj-text">«199 рублей — мелочь, но непонятно за что именно плачу, если всё это можно в Excel» → Барьер: не понимает уникальной ценности по сравнению с бесплатными инструментами</div></div>
   </div>
-  <div class="av-section">
-    <div class="av-section-title">3 источника информации</div>
+  <div class="section">
+    <div class="section-label">3 источника информации</div>
     <div class="av-source-card"><div class="av-source-icon">📱</div><div class="av-source-text"><strong>Telegram-каналы</strong> — «Бабкин», «Финансист» — читает утром в метро, доверяет личным историям авторов</div></div>
-    <div class="av-source-card"><div class="av-source-icon">▶️</div><div class="av-source-text"><strong>YouTube</strong> — смотрит обзоры приложений и видео «как я веду бюджет» от обычных людей, не финансовых гуру</div></div>
+    <div class="av-source-card"><div class="av-source-icon">▶️</div><div class="av-source-text"><strong>YouTube</strong> — смотрит обзоры приложений и видео «как я веду бюджет» от обычных людей</div></div>
     <div class="av-source-card"><div class="av-source-icon">⭐</div><div class="av-source-text"><strong>App Store / отзывы</strong> — перед установкой читает последние 10–15 отзывов, особенно негативные</div></div>
   </div>
-  <div class="av-section">
-    <div class="av-section-title">Поведенческие характеристики</div>
+  <div class="section">
+    <div class="section-label">Поведенческие характеристики</div>
     <div class="av-behaviour">
-      <p>Работает в IT-смежной сфере, привык к продуктовому мышлению — оценивает приложения как пользователь и как профессионал одновременно. Быстро замечает неудобный UX и удаляет без сожалений.</p>
+      <p>Работает в IT-смежной сфере, привык к продуктовому мышлению — оценивает приложения как пользователь и как профессионал. Быстро замечает неудобный UX и удаляет без сожалений.</p>
       <p>По будням — работа, спортзал 2–3 раза в неделю, ужин с друзьями в пятницу. На выходных — кино, кафе, иногда короткие поездки. Тратит на развлечения около 15 000–20 000 ₽ в месяц.</p>
-      <p>Решение о подписке принимает сам. Ключевой триггер к покупке — когда приложение за первые 3 дня реально показало что-то неожиданное про его траты.</p>
+      <p>Решение о подписке принимает сам. Ключевой триггер — когда приложение за первые 3 дня показало что-то неожиданное про его траты.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TAB 3: MARKET -->
+<div class="tab-content" id="tab-market">
+<div class="market-page">
+  <div class="market-hero">
+    <h1>Анализ рынка · PAM / TAM / SAM / SOM</h1>
+    <p>Мобильное приложение для личного финансового планирования · Россия · Средний чек 224 ₽/мес (Blended ARPU)</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Воронка рынка</div>
+    <div class="funnel">
+      <div class="funnel-item funnel-pam">
+        <div class="funnel-label">PAM · Потенциально доступный рынок (через 1 год)</div>
+        <div class="funnel-num">≈ 90 млрд ₽/год</div>
+        <div class="funnel-desc">Сегмент личных финансов в российском финтехе: 40 млрд ₽ по итогам 2025 г. (Smart Ranking/Forbes), рост +10% г/г → через год ≈ 44 млрд ₽ выручки топ-игроков. С учётом теневого рынка (Excel, ручной учёт) оценка PAM ×2 = ~90 млрд ₽</div>
+        <div class="funnel-pct">PAM</div>
+      </div>
+      <div class="funnel-item funnel-tam">
+        <div class="funnel-label">TAM · Общий объём рынка сейчас</div>
+        <div class="funnel-num">≈ 40 млрд ₽/год</div>
+        <div class="funnel-desc">Выручка сегмента «личные финансы» топ-100 финтех-компаний России в 2025 году (Forbes / Smart Ranking). 30–35 млн россиян ведут или хотят вести бюджет (НАФИ, 2023). 30 млн × 224 ₽/мес × 12 = верхняя граница ~80 млрд ₽, реальная монетизированная часть ~40 млрд ₽</div>
+        <div class="funnel-pct">100%</div>
+      </div>
+      <div class="funnel-item funnel-sam">
+        <div class="funnel-label">SAM · Доступный рынок (пользователи готовые платить)</div>
+        <div class="funnel-num">≈ 4 млрд ₽/год</div>
+        <div class="funnel-desc">По оценке основателя CoinKeeper (vc.ru, 2020): ~10–20 млн человек в России когда-либо пользовались приложениями для учёта. Платящая аудитория — ~10% = 1,5–2 млн чел. 1,8 млн × 224 ₽/мес × 12 ≈ 4,8 млрд ₽. С учётом реальных платящих пользователей конкурентов (Дзен-мани 2 млн, CoinKeeper 350k MAU) → SAM ≈ 4 млрд ₽ (~10% от TAM)</div>
+        <div class="funnel-pct">~10%</div>
+      </div>
+      <div class="funnel-item funnel-som">
+        <div class="funnel-label">SOM · Реально достижимая доля · 3 года</div>
+        <div class="funnel-num">≈ 280 млн ₽/год</div>
+        <div class="funnel-desc">Целевой MAU к месяцу 24 = 350 000, платящих ~14 700 (4,2%). 14 700 × 224 ₽/мес × 12 = 39,5 млн ₽/год к м.24. К м.36 при MAU 600k → ~280 млн ₽/год. Это ~7% от SAM — реалистичная доля нового игрока без прямой банковской синхронизации</div>
+        <div class="funnel-pct">~7%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Расчёт SAM подробно</div>
+    <div class="market-calc">
+      <div class="market-calc-title">База расчёта</div>
+      <div class="market-calc-row"><span>Россиян, ведущих/желающих вести бюджет (НАФИ 2023)</span><span>30–35 млн</span></div>
+      <div class="market-calc-row"><span>Конверсия в платящих (по рынку ~5–10%)</span><span>~1,8 млн чел.</span></div>
+      <div class="market-calc-row"><span>Blended ARPU Fina (Pro + Premium mix)</span><span>224 ₽/мес</span></div>
+      <div class="market-calc-row"><span>SAM = 1,8 млн × 224 ₽ × 12 мес</span><span>≈ 4,8 млрд ₽</span></div>
+    </div>
+    <div class="market-calc">
+      <div class="market-calc-title">Расчёт SOM (месяц 36)</div>
+      <div class="market-calc-row"><span>Целевой MAU</span><span>600 000</span></div>
+      <div class="market-calc-row"><span>Платящих (4,2%)</span><span>~25 200</span></div>
+      <div class="market-calc-row"><span>ARPU</span><span>224 ₽/мес</span></div>
+      <div class="market-calc-row"><span>SOM = 25 200 × 224 × 12</span><span>≈ 67,7 млн ₽/год</span></div>
+    </div>
+    <div class="source-note">
+      Источники: Smart Ranking / Forbes (сегмент личных финансов 2025 = 40 млрд ₽, +10,33% г/г) · НАФИ 2023 (30–35 млн россиян ведут бюджет) · vc.ru — интервью основателя CoinKeeper (10–20 млн пользователей категории) · Дзен-мани: 2 млн зарегистрированных пользователей (zenmoney.ru) · CoinKeeper: 350k MAU (данные компании, 2020)
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TAB 4: COMPETITIVE -->
+<div class="tab-content" id="tab-compete">
+<div class="compete-page">
+  <div class="compete-hero">
+    <h1>Конкурентный анализ</h1>
+    <p style="font-size:12px;color:#8C7B68;margin-top:6px;">Fina vs. ключевые игроки рынка личных финансов в России · 2025</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Сравнение по ключевым критериям</div>
+    <table class="compete-table">
+      <thead>
+        <tr>
+          <th>Продукт</th>
+          <th>Тип</th>
+          <th>Веб-версия</th>
+          <th>AI-анализ</th>
+          <th>Семейный бюджет</th>
+          <th>Планирование вперёд</th>
+          <th>Цена/мес</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fina</strong> 🟢</td>
+          <td><span class="badge badge-direct">Мы</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td>199–349 ₽</td>
+        </tr>
+        <tr>
+          <td><strong>Дзен-мани</strong></td>
+          <td><span class="badge badge-direct">Прямой</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span> (ассистент)</td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td>269 ₽</td>
+        </tr>
+        <tr>
+          <td><strong>CoinKeeper</strong></td>
+          <td><span class="badge badge-direct">Прямой</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="check">✓</span> Premium</td>
+          <td><span class="cross">✗</span></td>
+          <td>125 ₽</td>
+        </tr>
+        <tr>
+          <td><strong>Деньги ОК</strong></td>
+          <td><span class="badge badge-direct">Прямой</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Бесплатно</td>
+        </tr>
+        <tr>
+          <td><strong>Сбер / Т-Банк планировщик</strong></td>
+          <td><span class="badge badge-adjacent">Смежный</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Бесплатно</td>
+        </tr>
+        <tr>
+          <td><strong>Excel / Google Sheets</strong></td>
+          <td><span class="badge badge-indirect">Косвенный</span></td>
+          <td><span class="check">✓</span></td>
+          <td><span class="cross">✗</span></td>
+          <td><span class="cross">✗</span></td>
+          <td>Вручную</td>
+          <td>Бесплатно</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Детали конкурентов</div>
+    <div class="grid-2">
+      <div class="comp-card">
+        <div class="comp-problem">Дзен-мани · Главная угроза</div>
+        <div class="comp-gap">2 млн пользователей, работает с 2011 г. Есть веб + мобильное + AI-ассистент. Слабость: устаревший UI веб-версии, нет геймификации, retention низкий</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">CoinKeeper · 350k MAU</div>
+        <div class="comp-gap">Сильный UX, геймификация (монетки). Нет веб-версии и AI. Инвестиции МТС 125 млн ₽ (2020). Слабость: только мобильное, нет планирования вперёд</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">Банковские планировщики · Бесплатно</div>
+        <div class="comp-gap">Основная угроза по охвату — встроены в приложения Сбера, Т-Банка. Слабость: один банк = неполная картина, нет накопительных целей</div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-problem">Excel · Косвенный конкурент</div>
+        <div class="comp-gap">Бесплатно и гибко, но требует дисциплины. 47% пользователей бросают через 1–2 недели. Нет мобильного ввода, нет авто-учёта из СМС</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Стратегический вывод</div>
+    <div class="compete-summary">
+      <p>Рынок личных финансов в России возглавляет <strong>Дзен-мани</strong> (2 млн пользователей) — единственный прямой конкурент с веб-версией. Его слабости: устаревший UI и отсутствие геймификации. <strong>CoinKeeper</strong> силён UX-ом, но без веба и AI. Банковские планировщики бесплатны, однако привязаны к одному банку. Fina занимает незакрытую нишу: <strong>единственный продукт с веб + AI + геймификация + семейный бюджет одновременно</strong>. Ключевая стратегия — удержание через стрики и ачивки (где конкуренты провалились) + онбординг через 30-дневный режим обучения как точка конверсии Free→Pro.</p>
     </div>
   </div>
 </div>
